@@ -81,7 +81,7 @@ Resources:
               
               - Effect: Allow
                 Action: 'codestar-connections:UseConnection'
-                Resource: !GetAtt CodeStarConnection.Arn 
+                Resource: !GetAtt CodeStarConnection.ConnectionArn 
                 
   StaticSitePipeline:
     Type: 'AWS::CodePipeline::Pipeline'
@@ -104,7 +104,7 @@ Resources:
               OutputArtifacts:
                 - Name: SourceArtifact
               Configuration:
-                ConnectionArn: !GetAtt CodeStarConnection.Arn 
+                ConnectionArn: !GetAtt CodeStarConnection.ConnectionArn 
                 FullRepositoryId: iJKTen/s3-example
                 BranchName: main
                 OutputArtifactFormat: CODE_ZIP
